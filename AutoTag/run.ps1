@@ -11,7 +11,7 @@ $eventGridEvent | convertto-json | Write-Host
 $dateCreated = Get-Date -UFormat "%m/%d/%Y"
 $dateModified = Get-Date -UFormat "%m/%d/%Y"
 $dateExpiry = (Get-Date).AddYears(1) | Get-Date -UFormat "%m/%d/%Y"
-$Environment = (Get-AzContext).Subscription.Name
+#$Environment = (Get-AzContext).Subscription.Name
 # Add tag and value to the resource CHANGE ENVIRONMET!!
 
 $nameValue = $eventGridEvent.data.claims.name
@@ -22,10 +22,10 @@ $appID = $eventGridEvent.data.claims.appid
 #$modifiedTags = @{"LastModifiedBy"="$nameValue, $upnValue";"DateLastModified"="$dateModified"}
 
 If ($upnValue) {
-$creationTags = @{"CreatedBy"="$nameValue, $upnValue";"DateCreated"="$dateCreated";"ReviewDate"="$dateExpiry";"Environment"="$Environment"}
+$creationTags = @{"CreatedBy"="$nameValue, $upnValue";"DateCreated"="$dateCreated";"ReviewDate"="$dateExpiry"}
 $modifiedTags = @{"LastModifiedBy"="$nameValue, $upnValue";"DateLastModified"="$dateModified"}
 } else {
-$creationTags = @{"CreatedBy"="$appID";"DateCreated"="$dateCreated";"ReviewDate"="$dateExpiry";"Environment"="$Environment"}
+$creationTags = @{"CreatedBy"="$appID";"DateCreated"="$dateCreated";"ReviewDate"="$dateExpiry"}
 $modifiedTags = @{"LastModifiedBy"="$appID";"DateLastModified"="$dateModified"}
 }
 
