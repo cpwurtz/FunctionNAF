@@ -3,5 +3,8 @@
 #
 @{
     # For latest supported version, go to 'https://www.powershellgallery.com/packages/Az'. 
-    'Az' = '10.*'
+    'Az' = '11.*'
+    'Az.ResourceGraph' = '0.*'
+    'Az.OperationalInsights' = '3.*'
+    'Az.Monitor' = '5.*'
 }
