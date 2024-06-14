@@ -1,4 +1,24 @@
-﻿param($eventGridEvent, $TriggerMetadata)
+﻿<#
+.Synopsis
+A script used to capture creation and modification of resources and Tag the resource with those values.
+
+.DESCRIPTION
+A script used to capture creation and modification of resources and Tag the resource with those values.
+
+.Notes
+Created   : 2022-07-27
+Updated   : 2022-07-27
+Version   : 1.0
+Author    : @Neudesic, an IBM Company
+Twitter   : @neudesic.com
+Web       : https://neudesic.com
+
+Disclaimer: This script is provided "AS IS" with no warranties.
+#>
+
+## Input Timer bindings are passed in via param block ##
+
+param($eventGridEvent, $TriggerMetadata)
 
 $eventGridEvent | Out-String | Write-Host
 
